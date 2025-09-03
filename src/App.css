@@ -1,42 +1,98 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Reset and base styles */
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --primary-teal: #008080;
+  --accent-blue: #0047AB;
+  --gold-accent: #FFD700;
+  --background: #FFFFFF;
+  --foreground: #111827;
+  /* ... other variables ... */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
-@keyframes logo-spin {
+/* Animated Shapes Background */
+.shape-1, .shape-2, .shape-3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.7;
+}
+
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(0, 128, 128, 0.2);
+  top: 10%;
+  left: 10%;
+  animation: animate-shape 20s infinite alternate;
+}
+
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 71, 171, 0.2);
+  top: 50%;
+  left: 60%;
+  animation: animate-shape 25s infinite alternate-reverse;
+}
+
+.shape-3 {
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 215, 0, 0.15);
+  bottom: 10%;
+  right: 10%;
+  animation: animate-shape 15s infinite alternate;
+}
+
+@keyframes animate-shape {
   from {
-    transform: rotate(0deg);
+    transform: translate(0, 0) scale(1);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(100px, 50px) scale(1.2);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* ... rest of the CSS ... */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.btn-premium {
+  background-color: var(--primary-teal);
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 128, 128, 0.2);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 128, 128, 0.3);
+  background-color: #006666;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.animate-fadeUp {
+  animation: fadeUp 1s ease-out forwards;
 }

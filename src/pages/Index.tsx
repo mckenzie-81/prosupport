@@ -6,12 +6,14 @@ import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import VisionMissionSection from "@/components/VisionMissionSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import TrustedPartners from "@/components/TrustedPartners";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
+      <TrustedPartners />
       <AboutSection />
       <ServicesSection />
       <WhyChooseUsSection />
