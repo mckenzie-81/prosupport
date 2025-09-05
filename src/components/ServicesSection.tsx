@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "@/components/ui/carousel";
 
 const services = [
   {
@@ -119,6 +119,7 @@ const ServicesSection = () => {
           </CarouselContent>
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
+           <CarouselDots />
         </Carousel>
       </div>
     </section>
