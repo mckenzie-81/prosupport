@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import NavLink from "./NavLink";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,13 +47,13 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <Link
+              <NavLink
                 key={item.href}
                 to={item.href}
                 className="text-gray-700 hover:text-primary-teal transition-colors duration-300 font-medium"
               >
                 {item.label}
-              </Link>
+              </NavLink>
             ))}
           </div>
 
@@ -80,14 +81,14 @@ const Navigation = () => {
           <div className="md:hidden mt-2 bg-white rounded-xl shadow-lg p-4 animate-fadeUp">
             <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
-                <Link
+                <NavLink
                   key={item.href}
                   to={item.href}
                   className="text-gray-700 hover:text-primary-teal py-2 rounded-md text-center font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                </Link>
+                </NavLink>
               ))}
                 <Link to="/our-pillars" className="w-full" onClick={() => setIsOpen(false)}>
                     <Button variant="outline" className="w-full mt-2 text-gray-800 border-gray-400">

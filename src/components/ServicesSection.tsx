@@ -2,6 +2,7 @@
 "use client";
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight } from "lucide-react";
@@ -108,9 +109,11 @@ const ServicesSection = () => {
                       </ul>
                     </CardContent>
                     <CardFooter className="mt-auto">
-                      <Button className="w-full" variant={service.isMostPopular ? 'default' : 'outline'}>
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
+                      <Link to="/our-pillars" className="w-full">
+                        <Button className="w-full" variant={service.isMostPopular ? 'default' : 'outline'}>
+                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
                     </CardFooter>
                   </Card>
                 </div>

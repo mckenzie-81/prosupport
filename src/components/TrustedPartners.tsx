@@ -3,18 +3,10 @@ import { LogoLoop } from "@/components/ui/LogoLoop";
 
 const TrustedPartners = () => {
   const partners = [
-    { name: "Bank Of Ghana", logo: "src/assets/bog.png" },
-    { name: "Radiiant", logo: "src/assets/prologo.png" },
-    { name: "Aurora", logo: "src/assets/bog.png" },
-    { name: "Another", logo: "src/assets/prologo.png" },
-    { name: "Next", logo: "src/assets/bog.png" },
-    { name: "Next", logo: "src/assets/prologo.png" },
-    { name: "Bank Of Ghana", logo: "src/assets/bog.png" },
-    { name: "Radiiant", logo: "src/assets/bog.png" },
-    { name: "Aurora", logo: "src/assets/bog.png" },
-    { name: "Another", logo: "src/assets/bog.png" },
-    { name: "Next", logo: "src/assets/bog.png" },
-    { name: "Next", logo: "src/assets/bog.png" },
+    { name: "", logo: "/src/assets/bog.png" },
+    { name: "", logo: "/" },
+    { name: "", logo: "/" },
+    { name: "", logo: "/" },
 
   ];
 
