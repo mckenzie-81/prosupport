@@ -17,8 +17,8 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { href: "/#home", label: "Home" },
-    { href: "/#about", label: "About" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
     { href: "/#services", label: "Services" },
     { href: "/#contact", label: "Contact" },
   ];
@@ -35,7 +35,7 @@ const Navigation = () => {
               : "bg-transparent"
           }`}>
           {/* Logo */}
-          <Link to="/#home" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
               src="/prosupport1.png"
               alt="Prosupport Logo"
@@ -46,13 +46,13 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 className="text-gray-700 hover:text-primary-teal transition-colors duration-300 font-medium"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -80,14 +80,14 @@ const Navigation = () => {
           <div className="md:hidden mt-2 bg-white rounded-xl shadow-lg p-4 animate-fadeUp">
             <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   className="text-gray-700 hover:text-primary-teal py-2 rounded-md text-center font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
                 <Link to="/our-pillars" className="w-full" onClick={() => setIsOpen(false)}>
                     <Button variant="outline" className="w-full mt-2 text-gray-800 border-gray-400">
