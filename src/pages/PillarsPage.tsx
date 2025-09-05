@@ -1,7 +1,5 @@
 import React from 'react';
 import { Check } from 'lucide-react';
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 
 const PillarsPage = () => {
   const pillars = [
@@ -49,7 +47,6 @@ const PillarsPage = () => {
 
   return (
     <div className="bg-background text-foreground">
-      <Navigation />
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-muted/50 to-background pt-32 pb-20">
         <div className="container mx-auto px-4 text-center">
@@ -81,7 +78,6 @@ const PillarsPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

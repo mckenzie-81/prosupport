@@ -1,12 +1,10 @@
 
-import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
 import AboutSection from "@/components/AboutSection";
+import TeamSection from "@/components/TeamSection";
 
 const AboutUsPage = () => {
   return (
     <div className="bg-background text-foreground">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-muted/50 to-background pt-32 pb-20">
@@ -21,7 +19,9 @@ const AboutUsPage = () => {
       {/* About Section Content */}
       <AboutSection />
 
-      <Footer />
+      {/* Team Section */}
+      <TeamSection />
+
     </div>
   );
 };

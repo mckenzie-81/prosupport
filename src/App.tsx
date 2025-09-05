@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import PillarsPage from "./pages/PillarsPage";
 import AboutUsPage from "./pages/AboutUs.tsx";
 import ScrollToTop from "./components/ScrollToTop";
+import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
 
@@ -19,9 +21,11 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/our-pillars" element={<PillarsPage />} />
-          <Route path="/about" element={<AboutUsPage />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/our-pillars" element={<PillarsPage />} />
+            <Route path="/about" element={<AboutUsPage />} />
+          </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
