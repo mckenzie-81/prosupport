@@ -40,7 +40,7 @@ const HeroSection = () => {
           <Button
             variant="outline"
             size="lg"
-            className="border-white text-white hover:bg-white hover:text-primary-teal transition-colors duration-300"
+            className="border-white text-gray-400 hover:bg-white hover:text-primary-teal transition-colors duration-300"
           >
             Contact Sales
           </Button>
