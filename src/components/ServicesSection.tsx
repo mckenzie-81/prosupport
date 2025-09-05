@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Building, Truck, Users, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
 import facilityImage from "@/assets/facility-management.jpg";
 import purchasingImage from "@/assets/purchasing-supply.jpg";
 import supportImage from "@/assets/general-support.jpg";
@@ -77,6 +78,14 @@ const ServicesSection = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             We've architected our services around the four fundamental needs of every successful business in Ghana.
           </p>
+          <div className="mt-8">
+            <Link to="/our-pillars">
+              <Button size="lg" className="btn-premium text-white font-semibold">
+                Explore the Four Pillars in Detail
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Services Grid */}
@@ -123,14 +132,6 @@ const ServicesSection = () => {
                     </div>
                   ))}
                 </div>
-
-                <Button 
-                  variant="outline" 
-                  className="w-full group border-primary text-primary hover:bg-primary hover:text-white"
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
               </div>
             </Card>
           ))}

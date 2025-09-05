@@ -17,10 +17,10 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#home", label: "Home" },
+    { href: "/#about", label: "About" },
+    { href: "/#services", label: "Services" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   return (
@@ -58,9 +58,11 @@ const Navigation = () => {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <Button className="btn-premium text-white font-semibold" size="sm">
-              Get a Quote
-            </Button>
+            <Link to="/our-pillars">
+                <Button variant="outline" size="sm" className="text-black border-gray-700 hover:bg-gray-700 hover:text-white">
+                    Our Pillars
+                </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,9 +89,11 @@ const Navigation = () => {
                   {item.label}
                 </a>
               ))}
-              <Button className="w-full btn-premium text-white font-semibold mt-2">
-                Get a Quote
-              </Button>
+                <Link to="/our-pillars" className="w-full" onClick={() => setIsOpen(false)}>
+                    <Button variant="outline" className="w-full mt-2 text-gray-800 border-gray-400">
+                        Our Pillars
+                    </Button>
+                </Link>
             </div>
           </div>
         )}

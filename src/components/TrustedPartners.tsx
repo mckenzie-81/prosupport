@@ -1,13 +1,13 @@
 
-import placeholder from "/public/placeholder.svg";
+import placeholder from "@/assets/placeholder.svg";
 
 const TrustedPartners = () => {
   const partners = [
-    { name: "Partner 1", logo: placeholder },
-    { name: "Partner 2", logo: placeholder },
-    { name: "Partner 3", logo: placeholder },
-    { name: "Partner 4", logo: placeholder },
-    { name: "Partner 5", logo: placeholder },
+    { name: "Ghana Commercial Bank", logo: placeholder },
+    { name: "International Logistics Corp", logo: placeholder },
+    { name: "Gold Coast Manufacturing", logo: placeholder },
+    { name: "Accra Digital Ventures", logo: placeholder },
+    { name: "Tema Port Holdings", logo: placeholder },
   ];
 
   return (
