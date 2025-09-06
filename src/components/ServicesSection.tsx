@@ -1,63 +1,25 @@
-
-"use client";
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "@/components/ui/carousel";
 
 const services = [
   {
     title: "Facility Management",
-    description: "Comprehensive solutions for seamless, efficient, and sustainable workplace operations.",
-    features: [
-      "MEP & HVAC Maintenance",
-      "Janitorial & Cleaning Services",
-      "Landscaping & Groundskeeping",
-      "Pest Control & Fumigation",
-      "Waste Management & Recycling",
-      "Security & Access Control",
-    ],
-    isMostPopular: true,
+    imageUrl: "/images/facility-management.jpeg",
   },
   {
     title: "Purchasing & Supply",
-    description: "Strategic sourcing and procurement to optimize your supply chain and reduce costs.",
-    features: [
-      "Office & Industrial Supplies",
-      "Safety & PPE Vending",
-      "Promotional & Branded Items",
-      "Inventory Management",
-      "Supplier & Vendor Relations",
-      "Strategic Sourcing Solutions",
-    ],
+    imageUrl: "/images/purchasing-supply.jpeg",
   },
   {
     title: "General Support",
-    description: "Reliable and professional support to ensure your business runs smoothly every day.",
-    features: [
-      "Corporate & Dispatch Services",
-      "Relocation & Handyman Services",
-      "Executive & Protocol Services",
-      "Fleet Management",
-      "Event Support & Logistics",
-      "Front Desk & Reception",
-    ],
+    imageUrl: "/images/general-support.jpeg",
   },
   {
     title: "Market Entry",
-    description: "Expert guidance and on-the-ground support for a successful launch in the Ghanaian market.",
-    features: [
-      "Business Registration & Setup",
-      "Immigration & Work Permits",
-      "Housing & Accommodation",
-      "Cultural & Business Orientation",
-      "Local Partner Identification",
-      "Market Research & Feasibility",
-    ],
+    imageUrl: "/images/market-entry.jpeg",
   },
 ];
 
@@ -88,34 +50,19 @@ const ServicesSection = () => {
         >
           <CarouselContent className="-ml-4">
             {services.map((service, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3 group">
                 <div className="p-1 h-full">
-                  <Card className={`flex flex-col h-full rounded-2xl transition-all duration-300 ${service.isMostPopular ? "border-primary shadow-lg" : ""}`}>
-                    {service.isMostPopular && (
-                      <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground font-semibold">Most Popular</Badge>
-                    )}
-                    <CardHeader>
-                      <CardTitle>{service.title}</CardTitle>
-                      <CardDescription className="h-12">{service.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <ul className="space-y-3">
-                        {service.features.map((feature, i) => (
-                          <li key={i} className="flex items-start">
-                            <CheckCircle className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                    <CardFooter className="mt-auto">
-                      <Link to="/our-pillars" className="w-full">
-                        <Button className="w-full" variant={service.isMostPopular ? 'default' : 'outline'}>
-                          Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </CardFooter>
-                  </Card>
+                  <Link to="/our-pillars" className="h-full block">
+                    <Card
+                      className="relative flex items-center justify-center h-full min-h-[580px] rounded-none bg-cover bg-center text-white transition-all duration-300 overflow-hidden group-hover:scale-105"
+                      style={{ backgroundImage: `url(${service.imageUrl})` }}
+                    >
+                      <div className="absolute inset-0 bg-black bg-opacity-50" aria-hidden="true"></div>
+                      <div className="relative z-10 p-6 text-center">
+                        <CardTitle className="text-3xl font-bold">{service.title}</CardTitle>
+                      </div>
+                    </Card>
+                  </Link>
                 </div>
               </CarouselItem>
             ))}
