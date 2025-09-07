@@ -3,10 +3,15 @@ import { LogoLoop } from "@/components/ui/LogoLoop";
 
 const TrustedPartners = () => {
   const partners = [
-    { name: "", logo: "/src/assets/bog.png" },
+    { name: "", logo: "" },
+    { name: "H&N", logo: "/src/assets/H&N.png" },
+    { name: "QFS", logo: "src/assets/qfs.png" },
+    { name: "fertility", logo: "src/assets/fertility.png" },
+    { name: "SDC Capital", logo: "src/assets/SDC Capital.png" },
+    { name: "SDC Capital", logo: "src/assets/gwoSevo-logo.png" },
+    { name: "TVGS", logo: "src/assets/TheVictoriaGrammarSchool.png" },
     { name: "", logo: "/" },
-    { name: "", logo: "/" },
-    { name: "", logo: "/" },
+
 
   ];
 
@@ -26,7 +31,7 @@ const TrustedPartners = () => {
           speed={40} 
           fadeOut={true} 
           logoHeight={32} 
-          gap={64} // Increased gap for more breathing room
+          gap={160} // Increased gap for more breathing room
           fadeOutColor="var(--background)"
         />
       </div>
