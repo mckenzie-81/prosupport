@@ -1,8 +1,30 @@
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroBackground from "@/assets/hero-background.jpg";
+
+import heroBackground1 from "@/assets/hero-background.jpg";
+import heroBackground2 from "@/assets/hero-background-2.jpeg";
+import heroBackground3 from "@/assets/hero-background-3.jpg";
+import heroBackground4 from "@/assets/hero-background-4.jpeg";
+
+const images = [
+  { src: heroBackground1, alt: "Modern business setting in Ghana" },
+  { src: heroBackground2, alt: "Collaborative team working in a modern office" },
+  { src: heroBackground3, alt: "Aerial view of a cargo ship at a port" },
+  { src: heroBackground4, alt: "Professionals looking out over a city skyline" },
+];
 
 const HeroSection = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 7000); // Change image every 7 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="home"
@@ -10,11 +32,16 @@ const HeroSection = () => {
     >
       {/* Background Image & Overlay */}
       <div className="absolute top-0 left-0 w-full h-full">
-        <img
-          src={heroBackground}
-          alt="Modern business setting in Ghana"
-          className="w-full h-full object-cover"
-        />
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image.src}
+            alt={image.alt}
+            className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
