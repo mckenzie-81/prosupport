@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import PillarsPage from "./pages/PillarsPage";
+import ServicesPage from "./pages/ServicesPage";
 import AboutUsPage from "./pages/AboutUs.tsx";
 import ScrollToTop from "./components/ScrollToTop";
 import Layout from "./components/Layout";
@@ -23,7 +23,7 @@ const App = () => (
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
-            <Route path="/our-pillars" element={<PillarsPage />} />
+            <Route path="/services" element={<ServicesPage />} />
             <Route path="/about" element={<AboutUsPage />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

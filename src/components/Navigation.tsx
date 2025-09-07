@@ -59,7 +59,7 @@ const Navigation = () => {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <Link to="/our-pillars">
+            <Link to="/services">
                 <Button variant="outline" size="sm" className="text-black border-gray-700 hover:bg-gray-700 hover:text-white">
                     Our Pillars
                 </Button>
@@ -90,7 +90,7 @@ const Navigation = () => {
                   {item.label}
                 </NavLink>
               ))}
-                <Link to="/our-pillars" className="w-full" onClick={() => setIsOpen(false)}>
+                <Link to="/services" className="w-full" onClick={() => setIsOpen(false)}>
                     <Button variant="outline" className="w-full mt-2 text-gray-800 border-gray-400">
                         Our Pillars
                     </Button>

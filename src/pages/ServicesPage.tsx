@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 
-const PillarsPage = () => {
+const ServicesPage = () => {
   const pillars = [
     {
       name: "Corporate Compliance & Governance",
@@ -82,4 +82,4 @@ const PillarsPage = () => {
   );
 };
 
-export default PillarsPage;
+export default ServicesPage;
