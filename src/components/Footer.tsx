@@ -23,7 +23,7 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "About Us", href: "#about" },
-    { name: "Our Services", href: "#services" },
+    { name: "Our Services", href: "/services" },
     { name: "Why Choose Us", href: "#why-choose-us" },
     { name: "Vision & Mission", href: "#vision-mission" },
     { name: "Contact", href: "#contact" },
@@ -74,7 +74,7 @@ const Footer = () => {
               {services.map((service, index) => (
                 <li key={index}>
                   <a 
-                    href="#services" 
+                    href="/services" 
                     className="text-white/80 hover:text-accent-blue transition-colors duration-300 flex items-center group"
                   >
                     <div className="h-1 w-1 bg-accent-blue rounded-full mr-3 group-hover:scale-150 transition-transform"></div>

@@ -20,7 +20,7 @@ const Navigation = () => {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/#services", label: "Services" },
+    { href: "/#services", label: "Pillars" },
     { href: "/#contact", label: "Contact" },
   ];
 
@@ -61,7 +61,7 @@ const Navigation = () => {
           <div className="hidden md:block">
             <Link to="/services">
                 <Button variant="outline" size="sm" className="text-black border-gray-700 hover:bg-gray-700 hover:text-white">
-                    Our Pillars
+                    Our Services
                 </Button>
             </Link>
           </div>
@@ -92,7 +92,7 @@ const Navigation = () => {
               ))}
                 <Link to="/services" className="w-full" onClick={() => setIsOpen(false)}>
                     <Button variant="outline" className="w-full mt-2 text-gray-800 border-gray-400">
-                        Our Pillars
+                        Our Services
                     </Button>
                 </Link>
             </div>
