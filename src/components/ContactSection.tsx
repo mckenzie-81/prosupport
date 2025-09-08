@@ -159,7 +159,7 @@ const ContactSection = () => {
                   >
                     <option value="">Select a service...</option>
                     <option value="facility-management">Facility Management</option>
-                    <option value="purchasing-supply">Purchasing & Supply</option>
+                    <option value="purchasing-supply">Procurement & Supply Chain</option>
                     <option value="general-support">General Support Services</option>
                     <option value="market-entry">Market Entry Services</option>
                     <option value="consultation">Free Consultation</option>

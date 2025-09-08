@@ -10,7 +10,7 @@ const services = [
     imageUrl: "/images/facility-management.jpeg",
   },
   {
-    title: "Purchasing & Supply",
+    title: "Procurement & Supply Chain",
     imageUrl: "/images/purchasing-supply.jpeg",
   },
   {

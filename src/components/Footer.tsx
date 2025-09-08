@@ -15,7 +15,7 @@ const Footer = () => {
   const services = [
     "Facility Management",
     "Property Maintenance", 
-    "Purchasing & Supply",
+    "Procurement & Supply Chain",
     "Inventory Management",
     "General Support Services",
     "Market Entry Services"

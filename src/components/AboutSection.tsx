@@ -21,7 +21,7 @@ const AboutSection = () => {
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Prosupport Services Company Limited stands as Ghana's most versatile business 
               solutions architect. We've mastered the art of delivering excellence across four 
-              mission-critical areas: Facility Management Services, Purchasing & Supply, 
+              mission-critical areas: Facility Management Services, Procurement & Supply Chain, 
               General Support Services, and Market Entry Services.
             </p>
 

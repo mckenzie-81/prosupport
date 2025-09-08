@@ -10,7 +10,7 @@ const VisionMissionSection = () => {
     },
     {
       title: "Supply Chain Mastery", 
-      description: "Providing reliable Purchasing & Supply solutions that deliver premium products and materials promptly, consistently supporting local industries' growth ambitions."
+      description: "Providing reliable Procurement & Supply Chain solutions that deliver premium products and materials promptly, consistently supporting local industries' growth ambitions."
     },
     {
       title: "Operational Optimization",
