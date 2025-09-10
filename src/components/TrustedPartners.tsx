@@ -1,25 +1,17 @@
+import React from 'react';
+import { LogoLoop } from './ui/LogoLoop';
+import type { LogoItem } from './ui/LogoLoop';
 
-import { LogoLoop } from "@/components/ui/LogoLoop";
+const logoItems: LogoItem[] = [
+  { src: "/images/H&N.png", alt: "H&N" },
+  { src: "/images/qfs.png", alt: "QFS" },
+  { src: "/images/fertility.png", alt: "Fertility" },
+  { src: "/images/SDC Capital.png", alt: "SDC Capital" },
+  { src: "/images/gwoSevo-logo.png", alt: "GwoSevo" },
+  { src: "/images/TheVictoriaGrammarSchool.png", alt: "TVGS" },
+];
 
-const TrustedPartners = () => {
-  const partners = [
-    { name: "", logo: "" },
-    { name: "H&N", logo: "/src/assets/H&N.png" },
-    { name: "QFS", logo: "src/assets/qfs.png" },
-    { name: "fertility", logo: "src/assets/fertility.png" },
-    { name: "SDC Capital", logo: "src/assets/SDC Capital.png" },
-    { name: "SDC Capital", logo: "src/assets/gwoSevo-logo.png" },
-    { name: "TVGS", logo: "src/assets/TheVictoriaGrammarSchool.png" },
-    { name: "", logo: "/" },
-
-
-  ];
-
-  const logoItems = partners.map(partner => ({
-    src: partner.logo,
-    alt: partner.name,
-  }));
-
+const TrustedPartners = React.memo(() => {
   return (
     <div className="py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -31,12 +23,14 @@ const TrustedPartners = () => {
           speed={40} 
           fadeOut={true} 
           logoHeight={32} 
-          gap={160} // Increased gap for more breathing room
+          gap={160}
           fadeOutColor="var(--background)"
         />
       </div>
     </div>
   );
-};
+});
+
+TrustedPartners.displayName = 'TrustedPartners';
 
 export default TrustedPartners;

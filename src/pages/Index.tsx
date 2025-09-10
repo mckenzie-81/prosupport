@@ -1,12 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import { useLocation } from "react-router-dom";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import VisionMissionSection from "@/components/VisionMissionSection";
 import ContactSection from "@/components/ContactSection";
-import TrustedPartners from "@/components/TrustedPartners";
+
+// Lazy load non-critical components
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const TrustedPartners = lazy(() => import("@/components/TrustedPartners"));
+
+const ComponentLoader = () => (
+  <div className="flex items-center justify-center py-20">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+  </div>
+);
 
 const Index = () => {
   const location = useLocation();
@@ -18,7 +26,6 @@ const Index = () => {
       const targetElement = document.getElementById(scrollToId);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth" });
-        // Clean up the URL after scrolling
         window.history.replaceState(null, "", window.location.pathname);
       }
     }
@@ -27,8 +34,12 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <TrustedPartners />
-      <ServicesSection />
+      <Suspense fallback={<ComponentLoader />}>
+        <TrustedPartners />
+      </Suspense>
+      <Suspense fallback={<ComponentLoader />}>
+        <ServicesSection />
+      </Suspense>
       <WhyChooseUsSection />
       <VisionMissionSection />
       <ContactSection />

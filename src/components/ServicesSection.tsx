@@ -4,18 +4,19 @@ import { Link } from "react-router-dom";
 import { Card, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "@/components/ui/carousel";
 
+// Use public folder images for better reliability
 const services = [
   {
     title: "Facility Management",
-    imageUrl: "src/assets/fac-mngm1.jpeg",
+    imageUrl: "/images/fac-mngm1.jpeg",
   },
   {
     title: "Procurement & Supply Chain",
-    imageUrl: "src/assets/pro-supply2.jpeg",
+    imageUrl: "/images/pro-supply2.jpeg",
   },
   {
     title: "General Support",
-    imageUrl: "src/assets/gen-supp2.jpeg",
+    imageUrl: "/images/gen-supp2.jpeg",
   },
   {
     title: "Market Entry",
@@ -55,8 +56,19 @@ const ServicesSection = () => {
                   <Link to="/services" className="h-full block">
                     <Card
                       className="relative flex items-center justify-center h-full min-h-[580px] rounded-none bg-cover bg-center text-white transition-all duration-300 overflow-hidden group-hover:scale-105"
-                      style={{ backgroundImage: `url(${service.imageUrl})` }}
                     >
+                      {/* Background image */}
+                      <img
+                        src={service.imageUrl}
+                        alt={service.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
                       <div className="absolute inset-0 bg-black bg-opacity-50" aria-hidden="true"></div>
                       <div className="relative z-10 p-6 text-center">
                         <CardTitle className="text-3xl font-bold">{service.title}</CardTitle>
@@ -69,7 +81,7 @@ const ServicesSection = () => {
           </CarouselContent>
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
-           <CarouselDots />
+          <CarouselDots />
         </Carousel>
       </div>
     </section>
