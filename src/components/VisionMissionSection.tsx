@@ -9,7 +9,7 @@ const VisionMissionSection = () => {
       description: "Delivering top-tier Facility Management Services that create safe, comfortable, and highly efficient working environments for Ghana's leading businesses."
     },
     {
-      title: "Supply Chain Mastery", 
+      title: "Supply Chain Mastery",
       description: "Providing reliable Procurement & Supply Chain solutions that deliver premium products and materials promptly, consistently supporting local industries' growth ambitions."
     },
     {
@@ -45,9 +45,9 @@ const VisionMissionSection = () => {
               </div>
               <h3 className="text-3xl font-bold text-foreground mb-4">Our Vision</h3>
             </div>
-            
+
             <blockquote className="text-xl text-foreground leading-relaxed text-center italic border-l-4 border-primary pl-6 py-4 bg-white/50 rounded-r-lg">
-              "To be Ghana's nationally recognized leader in delivering exceptional business support 
+              "To be Ghana's nationally recognized leader in delivering exceptional business support
               services and market entry solutions—setting the standard for excellence across our industry."
             </blockquote>
           </Card>
@@ -60,7 +60,7 @@ const VisionMissionSection = () => {
               </div>
               <h3 className="text-3xl font-bold text-foreground mb-4">Our Mission</h3>
             </div>
-            
+
             <p className="text-lg text-foreground leading-relaxed text-center mb-6">
               Our commitment is threefold, focused on empowering businesses across Ghana:
             </p>
@@ -90,7 +90,7 @@ const VisionMissionSection = () => {
               color: "from-primary to-accent"
             },
             {
-              title: "Integrity", 
+              title: "Integrity",
               description: "Transparency, honesty, and ethical business practices form the foundation of every client relationship.",
               color: "from-accent to-gold-accent"
             },
@@ -100,7 +100,7 @@ const VisionMissionSection = () => {
               color: "from-gold-accent to-primary"
             }
           ].map((value, index) => (
-            <Card 
+            <Card
               key={index}
               className="p-8 text-center hover-lift border-0 shadow-elegant bg-gradient-to-br from-background to-muted/20 animate-scaleIn"
               style={{ animationDelay: `${index * 0.1}s` }}
@@ -127,7 +127,10 @@ const VisionMissionSection = () => {
               <Button className="btn-premium text-white font-semibold" size="lg">
                 Align with Our Mission
               </Button>
-              <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary hover:bg-primary hover:text-white">
                 Learn More About Us
               </Button>
             </div>

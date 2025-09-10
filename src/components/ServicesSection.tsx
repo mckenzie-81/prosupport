@@ -7,15 +7,15 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 const services = [
   {
     title: "Facility Management",
-    imageUrl: "/images/facility-management.jpeg",
+    imageUrl: "src/assets/fac-mngm1.jpeg",
   },
   {
     title: "Procurement & Supply Chain",
-    imageUrl: "/images/purchasing-supply.jpeg",
+    imageUrl: "src/assets/pro-supply2.jpeg",
   },
   {
     title: "General Support",
-    imageUrl: "/images/general-support.jpeg",
+    imageUrl: "src/assets/gen-supp2.jpeg",
   },
   {
     title: "Market Entry",
