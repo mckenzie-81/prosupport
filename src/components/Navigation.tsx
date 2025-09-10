@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -18,11 +17,14 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/#services", label: "Pillars" },
-    { href: "/#contact", label: "Contact" },
+    { to: "/#home", label: "Home" },
+    { to: "/#about", label: "About" },
+    { to: "/#services", label: "Services" },
+    { to: "/#contact", label: "Contact" },
   ];
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <header
@@ -48,8 +50,8 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <NavLink
-                key={item.href}
-                to={item.href}
+                key={item.to}
+                to={item.to}
                 className="text-gray-700 hover:text-primary-teal transition-colors duration-300 font-medium"
               >
                 {item.label}
@@ -69,7 +71,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -82,15 +84,15 @@ const Navigation = () => {
             <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <NavLink
-                  key={item.href}
-                  to={item.href}
+                  key={item.to}
+                  to={item.to}
                   className="text-gray-700 hover:text-primary-teal py-2 rounded-md text-center font-medium"
-                  onClick={() => setIsOpen(false)}
+                  onClick={closeMenu}
                 >
                   {item.label}
                 </NavLink>
               ))}
-                <Link to="/services" className="w-full" onClick={() => setIsOpen(false)}>
+                <Link to="/services" className="w-full" onClick={closeMenu}>
                     <Button variant="outline" className="w-full mt-2 text-gray-800 border-gray-400">
                         Our Services
                     </Button>
