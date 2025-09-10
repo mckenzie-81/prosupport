@@ -2,16 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-import heroBackground1 from "@/assets/hero-background.jpg";
-import heroBackground2 from "@/assets/hero-background-2.jpeg";
-import heroBackground3 from "@/assets/hero-background-3.jpg";
-import heroBackground4 from "@/assets/hero-background-4.jpeg";
-
+// Use public folder images for better reliability
 const images = [
-  { src: heroBackground1, alt: "Modern business setting in Ghana" },
-  { src: heroBackground2, alt: "Collaborative team working in a modern office" },
-  { src: heroBackground3, alt: "Aerial view of a cargo ship at a port" },
-  { src: heroBackground4, alt: "Professionals looking out over a city skyline" },
+  { src: "/images/hero-background.jpg", alt: "Modern business setting in Ghana" },
+  { src: "/images/hero-background-2.jpeg", alt: "Collaborative team working in a modern office" },
+  { src: "/images/hero-background-3.jpg", alt: "Aerial view of a cargo ship at a port" },
+  { src: "/images/hero-background-4.jpeg", alt: "Professionals looking out over a city skyline" },
 ];
 
 const HeroSection = () => {
@@ -20,7 +16,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 7000); // Change image every 7 seconds
+    }, 7000);
 
     return () => clearInterval(interval);
   }, []);
@@ -37,9 +33,15 @@ const HeroSection = () => {
             key={index}
             src={image.src}
             alt={image.alt}
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding="async"
             className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-1000 ease-in-out ${
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+            }}
           />
         ))}
         <div className="absolute inset-0 bg-black/60"></div>
