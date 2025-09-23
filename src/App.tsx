@@ -12,6 +12,11 @@ const Index = lazy(() => import("./pages/Index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const AboutUsPage = lazy(() => import("./pages/AboutUs"));
+const FacilityManagement = lazy(() => import("./pages/FacilityManagement"));
+const GeneralSupport = lazy(() => import("./pages/GeneralSupport"));
+const MarketEntry = lazy(() => import("./pages/MarketEntry"));
+const ProcumentService = lazy(() => import("./pages/ProcumentService"));
+
 
 // Lazy load heavy UI components
 const ServicesSection = lazy(() => import("./components/ServicesSection"));
@@ -39,6 +44,10 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/about" element={<AboutUsPage />} />
+              <Route path="/services/facility-management" element={<FacilityManagement />} />
+              <Route path="/services/general-support" element={<GeneralSupport />} />
+              <Route path="/services/market-entry" element={<MarketEntry />} />
+              <Route path="/services/procurement-service" element={<ProcumentService />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

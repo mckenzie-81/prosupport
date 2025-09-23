@@ -53,7 +53,7 @@ const ServicesSection = () => {
             {services.map((service, index) => (
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3 group">
                 <div className="p-1 h-full">
-                  <Link to="/services" className="h-full block">
+                  <Link to="/services/procurement-service" className="h-full block">
                     <Card
                       className="relative flex items-center justify-center h-full min-h-[580px] rounded-none bg-cover bg-center text-white transition-all duration-300 overflow-hidden group-hover:scale-105"
                     >
