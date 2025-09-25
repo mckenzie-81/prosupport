@@ -9,18 +9,22 @@ const services = [
   {
     title: "Facility Management",
     imageUrl: "/images/fac-mngm1.jpeg",
+    path: "/services/facility-management"
   },
   {
     title: "Procurement & Supply Chain",
     imageUrl: "/images/pro-supply2.jpeg",
+    path: "/services/procurement-service"
   },
   {
     title: "General Support",
     imageUrl: "/images/gen-supp2.jpeg",
+    path: "/services/general-support"
   },
   {
     title: "Market Entry",
     imageUrl: "/images/market-entry.jpeg",
+    path: "/market-entry"
   },
 ];
 
@@ -53,7 +57,7 @@ const ServicesSection = () => {
             {services.map((service, index) => (
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3 group">
                 <div className="p-1 h-full">
-                  <Link to="/services/procurement-service" className="h-full block">
+                  <Link to={service.path} className="h-full block">
                     <Card
                       className="relative flex items-center justify-center h-full min-h-[580px] rounded-none bg-cover bg-center text-white transition-all duration-300 overflow-hidden group-hover:scale-105"
                     >

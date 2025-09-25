@@ -6,7 +6,7 @@ const ProcumentService = () => {
       <div className="text-center p-4">
         <h1 className="text-4xl sm:text-6xl font-bold mb-4">Coming Soon</h1>
         <p className="text-lg sm:text-xl text-muted-foreground">
-          We're working hard to bring you detailed information about our Procument services. Stay tuned!
+          We're working hard to bring you detailed information about our Procurement & Supply Chain services. Stay tuned!
         </p>
       </div>
     </div>
