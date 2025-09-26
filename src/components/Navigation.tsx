@@ -20,7 +20,7 @@ const Navigation = () => {
     { to: "/#home", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/#services", label: "Services" },
-    { to: "/#contact", label: "Contact" },
+    { to: "/contact", label: "Contact" },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);

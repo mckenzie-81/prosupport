@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Target, Eye, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const VisionMissionSection = () => {
   const missionPoints = [
@@ -124,14 +125,15 @@ const VisionMissionSection = () => {
               Partner with a company that shares your commitment to excellence and understands your vision for growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="btn-premium text-white font-semibold" size="lg">
-                Align with Our Mission
+              <Button asChild className="btn-premium text-white font-semibold" size="lg">
+                <Link to="/contact">Align with Our Mission</Link>
               </Button>
               <Button
+                asChild
                 variant="outline"
                 size="lg"
                 className="border-primary text-primary hover:bg-primary hover:text-white">
-                Learn More About Us
+                <Link to="/about">Learn More About Us</Link>
               </Button>
             </div>
           </Card>

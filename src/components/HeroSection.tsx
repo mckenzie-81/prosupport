@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Use public folder images for better reliability
 const images = [
@@ -67,11 +68,12 @@ const HeroSection = () => {
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button
+            asChild
             variant="outline"
             size="lg"
             className="border-white text-gray-400 hover:bg-white hover:text-primary-teal transition-colors duration-300"
           >
-            Contact Sales
+            <Link to="/contact">Contact Sales</Link>
           </Button>
         </div>
       </div>

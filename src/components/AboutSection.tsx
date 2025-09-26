@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Award, Globe, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   return (
@@ -40,8 +41,8 @@ const AboutSection = () => {
               <cite className="text-muted-foreground">— Our Philosophy</cite>
             </blockquote>
 
-            <Button className="btn-premium text-white font-semibold" size="lg">
-              Discover Your Growth Potential
+            <Button asChild className="btn-premium text-white font-semibold" size="lg">
+              <Link to="/contact">Discover Your Growth Potential</Link>
             </Button>
           </div>
 

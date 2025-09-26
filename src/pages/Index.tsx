@@ -4,7 +4,6 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import VisionMissionSection from "@/components/VisionMissionSection";
-import ContactSection from "@/components/ContactSection";
 
 // Lazy load non-critical components
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
@@ -42,7 +41,6 @@ const Index = () => {
       </Suspense>
       <WhyChooseUsSection />
       <VisionMissionSection />
-      <ContactSection />
     </div>
   );
 };

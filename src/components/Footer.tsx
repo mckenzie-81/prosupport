@@ -22,12 +22,12 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: "About Us", href: "#about" },
+    { name: "About Us", href: "/about" },
     { name: "Our Services", href: "/services" },
-    { name: "Why Choose Us", href: "#why-choose-us" },
-    { name: "Vision & Mission", href: "#vision-mission" },
-    { name: "Contact", href: "#contact" },
-    { name: "Get Quote", href: "#contact" }
+    { name: "Why Choose Us", href: "/#why-choose-us" },
+    { name: "Vision & Mission", href: "/#vision-mission" },
+    { name: "Contact", href: "/contact" },
+    { name: "Get Quote", href: "/contact" }
   ];
 
   const scrollToTop = () => {

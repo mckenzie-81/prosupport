@@ -10,6 +10,7 @@ import {
   Shield,
   Clock
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const WhyChooseUsSection = () => {
   const advantages = [
@@ -185,10 +186,11 @@ const WhyChooseUsSection = () => {
               Join the ranks of successful businesses who've transformed their operations with our expertise.
             </p>
             <Button 
+              asChild
               className="bg-white text-primary hover:bg-white/90 font-semibold" 
               size="lg"
             >
-              Start Your Transformation
+              <Link to="/contact">Start Your Transformation</Link>
             </Button>
           </div>
         </div>

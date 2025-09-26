@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import ScrollToTop from "./components/ScrollToTop";
 import Layout from "./components/Layout";
+import Contact from "@/pages/Contact";
 
 // Lazy load components
 const Index = lazy(() => import("./pages/Index"));
@@ -50,6 +51,7 @@ const App = () => (
               <Route path="/services/market-entry" element={<MarketEntry />} />
               <Route path="/services/procurement-service" element={<ProcumentService />} />
               <Route path="/recruitment-and-personnel-outsourcing" element={<RecruitmentAndPersonnelOutsourcing />} />
+              <Route path="/contact" element={<Contact />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
