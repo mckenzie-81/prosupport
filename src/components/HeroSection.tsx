@@ -63,9 +63,11 @@ const HeroSection = () => {
         </h2>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button className="btn-premium text-white font-semibold group" size="lg">
-            Partner With Us
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          <Button asChild className="btn-premium text-white font-semibold group" size="lg">
+            <Link to="/contact?intent=partnership">
+              Partner With Us
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Button>
           <Button
             asChild
