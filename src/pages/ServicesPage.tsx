@@ -91,7 +91,7 @@ const ServicesPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Services</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-black max-w-2xl mx-auto">
               Streamline your operations with our comprehensive business solutions. Click on any service to learn more.
             </p>
           </div>
