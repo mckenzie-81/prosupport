@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
@@ -7,11 +7,11 @@ const MarketEntry = () => {
   const location = useLocation();
 
   const servicesIncluded = [
-    'Market Research & Analysis',
-    'Regulatory Compliance & Company Setup',
-    'Market Entry Strategy Development',
-    'Local Partner and Infrastructure Support',
-    'Ongoing Advisory & Liaison',
+    { name: 'Market Research & Analysis', description: 'In-depth analysis of the target market, including competition, and consumer behavior.' },
+    { name: 'Regulatory Compliance & Company Setup', description: 'Navigating the legal and regulatory landscape to establish your business entity correctly.' },
+    { name: 'Market Entry Strategy Development', description: 'Crafting a tailored strategy for your successful market entry and long-term growth.' },
+    { name: 'Local Partner and Infrastructure Support', description: 'Connecting you with local partners and helping you set up your physical and digital infrastructure.' },
+    { name: 'Ongoing Advisory & Liaison', description: 'Providing continuous support and acting as your liaison to navigate the local business environment.' },
   ];
 
   const processSteps = [
@@ -24,9 +24,9 @@ const MarketEntry = () => {
 
   const serviceLinks = [
     { name: 'Facility Management', path: '/services/facility-management' },
-    { name: 'Procurement & Supply Chain', path: '/procurement-service' },
+    { name: 'Procurement & Supply Chain', path: '/services/procurement-service' },
     { name: 'General Support', path: '/services/general-support' },
-    { name: 'Market Entry', path: '/market-entry' },
+    { name: 'Market Entry', path: '/services/market-entry' },
   ];
 
   return (
@@ -34,7 +34,7 @@ const MarketEntry = () => {
       {/* Hero Section */}
       <section 
         className="relative flex items-center justify-center h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/market-entry.jpeg')" }}
+        style={{ backgroundImage: "url('/images/mar-entry1.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative container mx-auto px-4 text-center text-white z-10">
@@ -54,8 +54,7 @@ const MarketEntry = () => {
                         <Link 
                             to={service.path} 
                             key={service.name} 
-                            className={`text-white text-center font-semibold p-2 text-sm transition-colors duration-300 hover:bg-white/20 ${location.pathname === service.path ? 'bg-white/20' : 'bg-white/10'}`
-                            }
+                            className={`text-white text-center font-semibold p-2 text-sm transition-colors duration-300 hover:bg-white/20 ${location.pathname === service.path ? 'bg-white/20' : 'bg-white/10'}`}
                         >
                             {service.name}
                         </Link>
@@ -80,19 +79,26 @@ const MarketEntry = () => {
           </div>
 
           {/* Services Included Section */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white p-8 sm:p-12 rounded-xl shadow-lg border border-border/50">
-              <h3 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
-                Services Include
-              </h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-lg text-muted-foreground">
-                {servicesIncluded.map((feature, index) => (
-                  <li key={index} className="flex items-center">
-                    <Check className="h-6 w-6 text-green-500 mr-4 flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+              Services Include
+            </h3>
+            <div className="divide-y divide-border">
+              {servicesIncluded.map((service, index) => (
+                <div key={index} className="flex flex-col md:flex-row justify-between md:items-center py-6">
+                  <div className="md:w-1/3 mb-4 md:mb-0">
+                    <h4 className="text-xl font-semibold">{service.name}</h4>
+                  </div>
+                  <div className="md:w-1/2">
+                    <p className="text-black">{service.description}</p>
+                  </div>
+                  <div className="md:w-auto flex justify-end mt-4 md:mt-0">
+                      <button className="p-2 rounded-full border border-border hover:bg-muted transition-colors">
+                          <ChevronRight className="h-6 w-6 text-muted-foreground" />
+                      </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
