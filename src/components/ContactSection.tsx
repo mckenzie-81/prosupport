@@ -61,7 +61,7 @@ const ContactSection = () => {
     {
       icon: Globe,
       title: "Website",
-      details: "www.prosupportserv.com",
+      details: "www.prosupportservicesgh.com",
       subtitle: "24/7 Online Support"
     }
   ];

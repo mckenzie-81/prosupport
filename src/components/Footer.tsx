@@ -62,7 +62,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Globe className="h-4 w-4 text-accent-blue" />
-                <span className="text-white/90">www.prosupportserv.com</span>
+                <span className="text-white/90">www.prosupportservicesgh.com</span>
               </div>
             </div>
           </div>
