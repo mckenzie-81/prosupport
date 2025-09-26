@@ -103,7 +103,7 @@ const FacilityManagement = () => {
                 Let us handle the complexities of facility management so you can focus on what you do best. Get in touch for a personalized consultation.
            </p>
            <Button asChild size="lg">
-             <Link to="/contact">Request a Quote</Link>
+             <Link to="/#contact">Request a Quote</Link>
            </Button>
         </div>
       </section>
