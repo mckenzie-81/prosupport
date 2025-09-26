@@ -155,7 +155,7 @@ const FacilityManagement = () => {
                     <div key={index} className="relative mb-20">
                         <div className={`flex items-center ${index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'}`}>
                             <div className={`w-1/2 px-10 ${index % 2 === 1 ? 'text-right' : 'text-left'}`}>
-                                <div className="inline-block p-8 rounded-lg border bg-background shadow-sm">
+                                <div>
                                     <h3 className="text-2xl font-bold text-primary mb-3">{step.title}</h3>
                                     <p className="text-muted-foreground">{step.description}</p>
                                 </div>
