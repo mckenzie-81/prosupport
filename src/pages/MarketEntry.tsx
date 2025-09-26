@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Globe, Compass, Briefcase, Landmark, Rocket } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
@@ -15,11 +15,36 @@ const MarketEntry = () => {
   ];
 
   const processSteps = [
-    { name: 'Initial Consultation & Goal Setting' },
-    { name: 'Market Analysis & Strategy Formation' },
-    { name: 'Regulatory Planning & Incorporation' },
-    { name: 'Operational Setup & Launch' },
-    { name: 'Post-Entry Support & Review' },
+    { 
+      name: 'Consult', 
+      title: 'Initial Consultation & Goal Setting',
+      description: 'We begin by understanding your business, objectives, and ambitions for entering the new market.',
+      icon: <Globe/>
+    },
+    { 
+      name: 'Analyze', 
+      title: 'Market Analysis & Strategy Formation',
+      description: 'Our team conducts in-depth market research and analysis to develop a bespoke market entry strategy.',
+      icon: <Compass/>
+    },
+    { 
+      name: 'Incorporate', 
+      title: 'Regulatory Planning & Incorporation',
+      description: 'We guide you through the complexities of legal and regulatory requirements to formally establish your business.',
+      icon: <Briefcase/>
+    },
+    { 
+      name: 'Launch', 
+      title: 'Operational Setup & Launch',
+      description: 'We assist with the practical aspects of setting up, from finding a location to hiring local talent.',
+      icon: <Rocket/>
+    },
+    { 
+      name: 'Support', 
+      title: 'Post-Entry Support & Review',
+      description: 'Our engagement continues with ongoing advisory services to ensure a sustainable and successful operation.',
+      icon: <Landmark/>
+    },
   ];
 
   const serviceLinks = [
@@ -102,34 +127,54 @@ const MarketEntry = () => {
             </div>
           </div>
 
-          {/* Our Process Section */}
-          <div className="mt-20 sm:mt-28">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-              Our Process
-            </h2>
-            <div className="relative">
-                <div className="flex flex-col md:flex-row justify-between items-center">
-                    {processSteps.map((step, index) => (
-                        <React.Fragment key={index}>
-                            <div className="flex flex-col items-center text-center w-full md:w-1/5 mb-8 md:mb-0 px-2">
-                                <div className="flex items-center justify-center w-16 h-16 bg-primary text-white rounded-full text-2xl font-bold mb-4">
-                                    {index + 1}
-                                </div>
-                                <h4 className="font-semibold text-lg">{step.name}</h4>
-                            </div>
-                            {index < processSteps.length - 1 && (
-                                <ChevronRight className="hidden md:block text-muted-foreground mx-4" size={40}/>
-                            )}
-                        </React.Fragment>
-                    ))}
-                </div>
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* Our Process Section */}
+      <section className="py-20 sm:py-28 bg-muted">
+        <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4">
+                Our Process
+            </h2>
+            <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-20">
+                A strategic roadmap to navigate the complexities of market entry, from initial analysis to successful launch and beyond.
+            </p>
+
+            <div className="grid md:grid-cols-5 divide-x divide-border/30 border-y border-border/30 max-w-5xl mx-auto">
+                {processSteps.map((step, index) => (
+                    <div key={index} className="text-center p-6">
+                        {React.cloneElement(step.icon, { className: "h-10 w-10 text-primary mx-auto mb-4" })}
+                        <p className="font-semibold text-lg">{step.name}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div className="relative mt-24 max-w-5xl mx-auto">
+                <div className="absolute left-1/2 -translate-x-1/2 w-0.5 h-full bg-border/30" aria-hidden="true"></div>
+                {processSteps.map((step, index) => (
+                    <div key={index} className="relative mb-20">
+                        <div className={`flex items-center ${index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'}`}>
+                            <div className={`w-1/2 px-10 ${index % 2 === 1 ? 'text-right' : 'text-left'}`}>
+                                <div className="inline-block p-8 rounded-lg border bg-background shadow-sm">
+                                    <h3 className="text-2xl font-bold text-primary mb-3">{step.title}</h3>
+                                    <p className="text-muted-foreground">{step.description}</p>
+                                </div>
+                            </div>
+                            <div className="w-1/2 px-10">
+                                {/* Spacer */}
+                            </div>
+                        </div>
+                        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary border-4 border-muted flex items-center justify-center text-white font-bold">
+                            {index + 1}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
       
       {/* CTA Section */}
-      <section className="bg-muted py-20">
+      <section className="bg-background py-20">
         <div className="container mx-auto px-4 text-center">
            <h2 className="text-3xl font-bold text-foreground mb-4">Ready to Expand Your Business?</h2>
            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">

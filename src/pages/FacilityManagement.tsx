@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Search, FileText, Wrench, ShieldCheck, TrendingUp } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
@@ -15,11 +15,36 @@ const FacilityManagement = () => {
   ];
 
   const processSteps = [
-    { name: 'Needs Assessment' },
-    { name: 'Customized Planning' },
-    { name: 'Implementation' },
-    { name: 'Monitoring & Quality Control' },
-    { name: 'Reporting & Improvement' },
+    { 
+      name: 'Assess',
+      title: 'Needs Assessment', 
+      description: 'We conduct a thorough assessment of your facilities, operational needs, and strategic goals.',
+      icon: <Search/> 
+    },
+    { 
+      name: 'Plan',
+      title: 'Customized Planning', 
+      description: 'Based on the assessment, we develop a tailored facility management plan that aligns with your budget and objectives.',
+      icon: <FileText/> 
+    },
+    { 
+      name: 'Implement',
+      title: 'Implementation', 
+      description: 'Our expert team implements the plan, coordinating all services and ensuring a smooth transition.',
+      icon: <Wrench/> 
+    },
+    { 
+      name: 'Monitor',
+      title: 'Monitoring & Quality Control', 
+      description: 'We continuously monitor service delivery and conduct quality checks to ensure the highest standards.',
+      icon: <ShieldCheck/> 
+    },
+    { 
+      name: 'Improve',
+      title: 'Reporting & Improvement', 
+      description: 'You receive regular performance reports, and we work with you to identify opportunities for improvement.',
+      icon: <TrendingUp/> 
+    },
   ];
 
   const serviceLinks = [
@@ -102,34 +127,54 @@ const FacilityManagement = () => {
             </div>
           </div>
 
-          {/* Our Process Section */}
-          <div className="mt-20 sm:mt-28">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-              Our Process
-            </h2>
-            <div className="relative">
-                <div className="flex flex-col md:flex-row justify-between items-center">
-                    {processSteps.map((step, index) => (
-                        <React.Fragment key={index}>
-                            <div className="flex flex-col items-center text-center w-full md:w-1/5 mb-8 md:mb-0 px-2">
-                                <div className="flex items-center justify-center w-16 h-16 bg-primary text-white rounded-full text-2xl font-bold mb-4">
-                                    {index + 1}
-                                </div>
-                                <h4 className="font-semibold text-lg">{step.name}</h4>
-                            </div>
-                            {index < processSteps.length - 1 && (
-                                <ChevronRight className="hidden md:block text-muted-foreground mx-4" size={40}/>
-                            )}
-                        </React.Fragment>
-                    ))}
-                </div>
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* Our Process Section */}
+      <section className="py-20 sm:py-28 bg-muted">
+        <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4">
+                Our Process
+            </h2>
+            <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-20">
+                A systematic approach to facility management that ensures quality, efficiency, and continuous improvement.
+            </p>
+
+            <div className="grid md:grid-cols-5 divide-x divide-border/30 border-y border-border/30 max-w-5xl mx-auto">
+                {processSteps.map((step, index) => (
+                    <div key={index} className="text-center p-6">
+                        {React.cloneElement(step.icon, { className: "h-10 w-10 text-primary mx-auto mb-4" })}
+                        <p className="font-semibold text-lg">{step.name}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div className="relative mt-24 max-w-5xl mx-auto">
+                <div className="absolute left-1/2 -translate-x-1/2 w-0.5 h-full bg-border/30" aria-hidden="true"></div>
+                {processSteps.map((step, index) => (
+                    <div key={index} className="relative mb-20">
+                        <div className={`flex items-center ${index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'}`}>
+                            <div className={`w-1/2 px-10 ${index % 2 === 1 ? 'text-right' : 'text-left'}`}>
+                                <div className="inline-block p-8 rounded-lg border bg-background shadow-sm">
+                                    <h3 className="text-2xl font-bold text-primary mb-3">{step.title}</h3>
+                                    <p className="text-muted-foreground">{step.description}</p>
+                                </div>
+                            </div>
+                            <div className="w-1/2 px-10">
+                                {/* Spacer */}
+                            </div>
+                        </div>
+                        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary border-4 border-muted flex items-center justify-center text-white font-bold">
+                            {index + 1}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
       
       {/* CTA Section */}
-      <section className="bg-muted py-20">
+      <section className="bg-background py-20">
         <div className="container mx-auto px-4 text-center">
            <h2 className="text-3xl font-bold text-foreground mb-4">Ready to Optimize Your Facilities?</h2>
            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
