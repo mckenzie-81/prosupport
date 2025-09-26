@@ -2,6 +2,7 @@ import React from 'react';
 import { ChevronRight, Search, FileText, Wrench, ShieldCheck, TrendingUp } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const FacilityManagement = () => {
   const location = useLocation();
@@ -53,6 +54,28 @@ const FacilityManagement = () => {
     { name: 'General Support', path: '/services/general-support' },
     { name: 'Market Entry', path: '/services/market-entry' },
   ];
+
+  const AnimatedProcessStep = ({ step, index }: { step: any, index: number }) => {
+    const { isVisible, elementRef } = useScrollAnimation();
+    return (
+      <div ref={elementRef} className={`relative mb-20 transition-all duration-700 ease-in-out ${isVisible ? 'opacity-100 transform-none' : (index % 2 === 1 ? 'opacity-0 translate-x-10' : 'opacity-0 -translate-x-10')}`}>
+          <div className={`flex items-center ${index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'}`}>
+              <div className={`w-1/2 px-10 ${index % 2 === 1 ? 'text-right' : 'text-left'}`}>
+                  <div>
+                      <h3 className="text-2xl font-bold text-primary mb-3">{step.title}</h3>
+                      <p className="text-muted-foreground">{step.description}</p>
+                  </div>
+              </div>
+              <div className="w-1/2 px-10">
+                  {/* Spacer */}
+              </div>
+          </div>
+          <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary border-4 border-muted flex items-center justify-center text-white font-bold">
+              {index + 1}
+          </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-background text-foreground">
@@ -152,22 +175,7 @@ const FacilityManagement = () => {
             <div className="relative mt-24 max-w-5xl mx-auto">
                 <div className="absolute left-1/2 -translate-x-1/2 w-0.5 h-full bg-border/30" aria-hidden="true"></div>
                 {processSteps.map((step, index) => (
-                    <div key={index} className="relative mb-20">
-                        <div className={`flex items-center ${index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'}`}>
-                            <div className={`w-1/2 px-10 ${index % 2 === 1 ? 'text-right' : 'text-left'}`}>
-                                <div>
-                                    <h3 className="text-2xl font-bold text-primary mb-3">{step.title}</h3>
-                                    <p className="text-muted-foreground">{step.description}</p>
-                                </div>
-                            </div>
-                            <div className="w-1/2 px-10">
-                                {/* Spacer */}
-                            </div>
-                        </div>
-                        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary border-4 border-muted flex items-center justify-center text-white font-bold">
-                            {index + 1}
-                        </div>
-                    </div>
+                    <AnimatedProcessStep key={index} step={step} index={index} />
                 ))}
             </div>
         </div>
