@@ -58,7 +58,7 @@ const GeneralSupport = () => {
   const AnimatedProcessStep = ({ step, index }: { step: any, index: number }) => {
     const { isVisible, elementRef } = useScrollAnimation();
     return (
-      <div ref={elementRef} className={`relative mb-20 transition-all duration-700 ease-in-out ${isVisible ? 'opacity-100 transform-none' : (index % 2 === 1 ? 'opacity-0 translate-x-10' : 'opacity-0 -translate-x-10')}`}>
+      <div ref={elementRef} className={`relative mb-20 transition-all duration-700 ease-in ${isVisible ? 'opacity-100 transform-none' : (index % 2 === 1 ? 'opacity-0 translate-x-10' : 'opacity-0 -translate-x-10')}`}>
           <div className={`flex items-center ${index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'}`}>
               <div className={`w-1/2 px-10 ${index % 2 === 1 ? 'text-right' : 'text-left'}`}>
                   <div>
