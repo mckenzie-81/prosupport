@@ -16,13 +16,7 @@ const ServicesPage = () => {
         'Landscaping and Groundskeeping',
         'Space Management & Office Setup'
       ],
-      process: [
-        'Needs Assessment',
-        'Customized Planning',
-        'Implementation',
-        'Monitoring & Quality Control',
-        'Reporting & Improvement'
-      ],
+      
       icon: <Wrench />,
       path: '/services/facility-management'
     },
@@ -36,13 +30,7 @@ const ServicesPage = () => {
         'Logistics & Delivery Coordination',
         'Inventory & Stock Control'
       ],
-      process: [
-        'Requirements Analysis',
-        'Supplier Sourcing',
-        'Evaluation & Selection',
-        'Order Execution & Logistics',
-        'Receiving, Inspection & Feedback'
-      ],
+      
       icon: <ShoppingCart />,
       path: '/services/procurement-service'
     },
@@ -56,13 +44,7 @@ const ServicesPage = () => {
         'Document Management',
         'Travel & Event Coordination'
       ],
-      process: [
-        'Consultation & Scope Definition',
-        'Tailored Service Plan',
-        'Resource Deployment',
-        'Execution & Management',
-        'Monitoring & Continuous Improvement'
-      ],
+      
       icon: <ClipboardSignature />,
       path: '/services/general-support'
     },
@@ -76,13 +58,7 @@ const ServicesPage = () => {
         'Local Partner and Infrastructure Support',
         'Ongoing Advisory & Liaison'
       ],
-      process: [
-        'Initial Consultation & Goal Setting',
-        'Market Analysis & Strategy Formation',
-        'Regulatory Planning & Incorporation',
-        'Operational Setup & Launch',
-        'Post-Entry Support & Review'
-      ],
+      
       icon: <Globe />,
       path: '/services/market-entry'
     },
@@ -96,13 +72,7 @@ const ServicesPage = () => {
         'Onboarding and Training Support',
         'HR Administration & Compliance'
       ],
-      process: [
-        'Workforce Needs Analysis',
-        'Sourcing Strategy & Outreach',
-        'Screening & Selection',
-        'Placement & Onboarding',
-        'HR Management & Ongoing Support'
-      ],
+      
       icon: <UserPlus />,
       path: '/recruitment-and-personnel-outsourcing' // Assuming a path for the new service
     }
@@ -157,19 +127,7 @@ const ServicesPage = () => {
                     </Button>
                   </div>
                 </div>
-                <div className="lg:col-span-5 mt-12 lg:mt-0">
-                  <div className="bg-muted p-8 rounded-lg">
-                    <h3 className="text-2xl font-semibold mb-6">Our Process</h3>
-                    <ol className="space-y-4">
-                      {service.process.map((step, i) => (
-                        <li key={i} className="flex items-start">
-                          <div className="flex-shrink-0 h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-4">{i + 1}</div>
-                          <span>{step}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                </div>
+        
               </div>
             </div>
           ))}
