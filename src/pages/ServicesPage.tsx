@@ -1,81 +1,191 @@
 import React from 'react';
-import { Check } from 'lucide-react';
+import { ChevronRight, Wrench, ShoppingCart, ClipboardSignature, Globe, UserPlus } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const ServicesPage = () => {
-  const pillars = [
+
+  const services = [
     {
-      name: "Corporate Compliance & Governance",
-      description: "Navigate Ghana's regulatory landscape with confidence. We ensure your business is not just compliant, but structured for resilience and growth.",
-      features: [
-        "Company Registration & Renewal",
-        "Regulatory Filings & Updates",
-        "Board Structuring & Governance Best Practices",
-        "Secretarial Services"
-      ]
+      title: 'Facility Management',
+      description: 'Our Facility Management services ensure that client facilities are safe, well-maintained, and operating at peak efficiency. We take a comprehensive approach to managing the built environment – covering both technical maintenance of infrastructure and day-to-day support activities – to provide functional, comfortable, and secure workplaces. With a focus on preventive maintenance and rapid response, we help prolong the lifespan of assets and minimize downtime.',
+      services_include: [
+        'Building Maintenance & Operations',
+        'Cleaning and Janitorial Services',
+        'Security & Access Control',
+        'Landscaping and Groundskeeping',
+        'Space Management & Office Setup'
+      ],
+      process: [
+        'Needs Assessment',
+        'Customized Planning',
+        'Implementation',
+        'Monitoring & Quality Control',
+        'Reporting & Improvement'
+      ],
+      icon: <Wrench />,
+      path: '/services/facility-management'
     },
     {
-      name: "Business Advisory & Strategy",
-      description: "From market entry to operational excellence, we provide the strategic insights that drive sustainable growth and competitive advantage.",
-      features: [
-        "Market Entry Strategy & Feasibility Studies",
-        "Business Plan Development",
-        "Performance Optimization",
-        "Strategic Partnerships & Network Access"
-      ]
+      title: 'Purchasing & Supply',
+      description: 'Our Purchasing & Supply service offers end-to-end procurement solutions to ensure your organization has the right materials and services at the right time, obtained in a cost-effective manner. We manage the entire supply chain process from identifying reputable suppliers and negotiating favorable terms to overseeing delivery and inventory management.',
+      services_include: [
+        'Strategic Sourcing',
+        'Supplier Negotiation & Contracting',
+        'Purchase Order Management',
+        'Logistics & Delivery Coordination',
+        'Inventory & Stock Control'
+      ],
+      process: [
+        'Requirements Analysis',
+        'Supplier Sourcing',
+        'Evaluation & Selection',
+        'Order Execution & Logistics',
+        'Receiving, Inspection & Feedback'
+      ],
+      icon: <ShoppingCart />,
+      path: '/services/procurement-service'
     },
     {
-      name: "Human Capital & Staffing",
-      description: "Your team is your greatest asset. We help you find, develop, and manage the talent that will propel your business forward.",
-      features: [
-        "Executive Search & Recruitment",
-        "Expatriate & Local Staffing Solutions",
-        "HR Policy Development & Implementation",
-        "Payroll & Benefits Administration"
-      ]
+      title: 'General Support Services',
+      description: 'Our General Support Services provide clients with a broad range of auxiliary business support functions, allowing them to offload non-core tasks and focus on their primary business activities. We ensure that everyday operational needs – from administrative tasks to IT support – are handled efficiently and professionally.',
+      services_include: [
+        'Administrative & Clerical Support',
+        'Front Desk & Reception Services',
+        'IT Support Coordination',
+        'Document Management',
+        'Travel & Event Coordination'
+      ],
+      process: [
+        'Consultation & Scope Definition',
+        'Tailored Service Plan',
+        'Resource Deployment',
+        'Execution & Management',
+        'Monitoring & Continuous Improvement'
+      ],
+      icon: <ClipboardSignature />,
+      path: '/services/general-support'
     },
     {
-      name: "Logistics & Supply Chain",
-      description: "Efficiently move goods and manage your supply chain with our deep local knowledge, ensuring reliability from procurement to final delivery.",
-      features: [
-        "Procurement & Sourcing",
-        "Freight Forwarding & Customs Clearance",
-        "Warehousing & Distribution",
-        "Last-Mile Delivery Solutions"
-      ]
+      title: 'Market Entry Support',
+      description: 'Entering a new market can be complex – our Market Entry Support service is designed to simplify this process and guide companies through every stage of establishing a presence in a new country or region. We provide comprehensive assistance that covers initial market research, strategic planning, legal compliance, and the practical aspects of setting up operations.',
+      services_include: [
+        'Market Research & Analysis',
+        'Regulatory Compliance & Company Setup',
+        'Market Entry Strategy Development',
+        'Local Partner and Infrastructure Support',
+        'Ongoing Advisory & Liaison'
+      ],
+      process: [
+        'Initial Consultation & Goal Setting',
+        'Market Analysis & Strategy Formation',
+        'Regulatory Planning & Incorporation',
+        'Operational Setup & Launch',
+        'Post-Entry Support & Review'
+      ],
+      icon: <Globe />,
+      path: '/services/market-entry'
+    },
+    {
+      title: 'Recruitment and Personnel Outsourcing',
+      description: 'Our Recruitment and Personnel Outsourcing services help clients attract top talent and meet their staffing needs in a flexible, efficient manner. We cover both direct recruitment for permanent hires and outsourced staffing solutions for temporary or project-based needs.',
+      services_include: [
+        'Talent Sourcing & Recruitment',
+        'Candidate Screening & Evaluation',
+        'Contract Staffing & Outsourcing',
+        'Onboarding and Training Support',
+        'HR Administration & Compliance'
+      ],
+      process: [
+        'Workforce Needs Analysis',
+        'Sourcing Strategy & Outreach',
+        'Screening & Selection',
+        'Placement & Onboarding',
+        'HR Management & Ongoing Support'
+      ],
+      icon: <UserPlus />,
+      path: '/recruitment-and-personnel-outsourcing' // Assuming a path for the new service
     }
   ];
 
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-muted/50 to-background pt-32 pb-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-4">Our Four Pillars of Success</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A holistic framework designed to support every facet of your business operations in Ghana, ensuring a seamless path to growth and excellence.
+      <section 
+        className="relative flex items-center justify-center h-[60vh] bg-cover bg-center"
+        style={{ backgroundImage: "url('https://c8.alamy.com/comp/JH0AK0/business-life-collage-concept-of-teamwork-partnership-and-startup-JH0AK0.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative container mx-auto px-4 text-center text-white z-10">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            Our Services
+          </h1>
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
+            Comprehensive solutions to support your business operations and growth.
           </p>
         </div>
       </section>
 
-      {/* Pillars Section */}
-      <section className="py-20">
+      {/* Services Section */}
+      <section className="py-20 sm:py-28">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {pillars.map((pillar, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-primary mb-4">{pillar.name}</h3>
-                <p className="text-muted-foreground mb-6">{pillar.description}</p>
-                <ul className="space-y-3">
-                  {pillar.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-center">
-                      <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+          {services.map((service, index) => (
+            <div key={index} className="mb-24 last:mb-0">
+              <div className="flex items-center mb-8">
+                <div className="flex-shrink-0">
+                  {React.cloneElement(service.icon, { className: "h-12 w-12 text-primary" })}
+                </div>
+                <div className="ml-6">
+                  <h2 className="text-3xl md:text-4xl font-bold">{service.title}</h2>
+                </div>
               </div>
-            ))}
-          </div>
+              <div className="lg:grid lg:grid-cols-12 lg:gap-16">
+                <div className="lg:col-span-7">
+                  <p className="text-lg text-muted-foreground mb-10">{service.description}</p>
+                  <h3 className="text-2xl font-semibold mb-6">Services include:</h3>
+                  <ul className="space-y-4">
+                    {service.services_include.map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <ChevronRight className="h-6 w-6 text-primary flex-shrink-0 mt-1 mr-3" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-10">
+                    <Button asChild>
+                        <Link to={service.path}>Learn More</Link>
+                    </Button>
+                  </div>
+                </div>
+                <div className="lg:col-span-5 mt-12 lg:mt-0">
+                  <div className="bg-muted p-8 rounded-lg">
+                    <h3 className="text-2xl font-semibold mb-6">Our Process</h3>
+                    <ol className="space-y-4">
+                      {service.process.map((step, i) => (
+                        <li key={i} className="flex items-start">
+                          <div className="flex-shrink-0 h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-4">{i + 1}</div>
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-background py-20">
+        <div className="container mx-auto px-4 text-center">
+           <h2 className="text-3xl font-bold text-foreground mb-4">Ready to get started?</h2>
+           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+                Contact us today to discuss how our services can benefit your business.
+           </p>
+           <Button asChild size="lg">
+             <Link to="/contact">Contact Us</Link>
+           </Button>
         </div>
       </section>
     </div>
