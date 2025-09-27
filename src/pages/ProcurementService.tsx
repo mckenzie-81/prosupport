@@ -83,17 +83,20 @@ const ProcurementService = () => {
 
   return (
     <div className="bg-background text-foreground">
-      {/* Hero Section */}
+      {/* Hero Section - FIXED */}
       <section 
-        className="relative flex items-center justify-center h-screen bg-cover bg-center"
+        className="relative flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/pro-supply2.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black/60" />
-        <div className="relative container mx-auto px-4 text-center text-white z-10">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+        {/* Add skeleton/placeholder while image loads */}
+        <div className="absolute inset-0 bg-gray-900 animate-pulse" style={{ zIndex: -1 }} />
+        
+        <div className="relative container mx-auto px-4 text-center text-white z-10 py-20">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
             Procurement & Supply Chain
           </h1>
-          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Streamlining your procurement processes and optimizing your supply chain for maximum efficiency and cost savings.
           </p>
         </div>
