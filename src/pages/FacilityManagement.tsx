@@ -58,24 +58,28 @@ const FacilityManagement = () => {
   const AnimatedProcessStep = ({ step, index }: { step: any, index: number }) => {
     const { isVisible, elementRef } = useScrollAnimation();
     return (
-      <div ref={elementRef} className={`relative mb-20 transition-all duration-700 ease-in ${isVisible ? 'opacity-100 transform-none' : (index % 2 === 1 ? 'opacity-0 translate-x-10' : 'opacity-0 -translate-x-10')}`}>
-          <div className={`flex items-center ${index % 2 === 1 ? 'flex-row-reverse' : 'flex-row'}`}>
-              <div className={`w-1/2 px-10 ${index % 2 === 1 ? 'text-right' : 'text-left'}`}>
-                  <div>
-                      <h3 className="text-2xl font-bold text-primary mb-3">{step.title}</h3>
-                      <p className="text-muted-foreground">{step.description}</p>
-                  </div>
-              </div>
-              <div className="w-1/2 px-10">
-                  {/* Spacer */}
-              </div>
-          </div>
-          <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary border-4 border-muted flex items-center justify-center text-white font-bold">
-              {index + 1}
-          </div>
-      </div>
+        <div ref={elementRef} className={`relative mb-12 md:mb-20 transition-all duration-700 ease-in ${isVisible ? 'opacity-100 transform-none' : (index % 2 === 1 ? 'opacity-0 translate-x-10' : 'opacity-0 -translate-x-10')}`}>
+            {/* Fixed: Better mobile layout */}
+            <div className={`flex flex-col md:flex-row items-start md:items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                <div className={`w-full md:w-1/2 px-4 md:px-10 mb-6 md:mb-0 ${index % 2 === 1 ? 'md:text-right' : 'md:text-left'} text-center md:text-left`}>
+                    <div>
+                        <h3 className="text-xl md:text-2xl font-bold text-primary mb-3">{step.title}</h3>
+                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{step.description}</p>
+                    </div>
+                </div>
+                <div className="hidden md:block w-1/2 px-10">
+                    {/* Spacer for desktop */}
+                </div>
+            </div>
+            {/* Fixed: Better mobile positioning */}
+            <div className="flex md:absolute md:top-1/2 md:left-1/2 md:-translate-y-1/2 md:-translate-x-1/2 justify-center md:justify-auto w-full md:w-auto mb-4 md:mb-0">
+                <div className="w-8 h-8 rounded-full bg-primary border-4 border-muted flex items-center justify-center text-white font-bold">
+                    {index + 1}
+                </div>
+            </div>
+        </div>
     );
-  }
+}
 
   return (
     <div className="bg-background text-foreground">
@@ -94,17 +98,19 @@ const FacilityManagement = () => {
           </p>
         </div>
 
-        {/* Service Links Bar */}
+        {/* Service Links Bar - FIXED */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6 z-20">
             <div className="container mx-auto">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-2">
+                {/* Fixed: Better mobile grid layout */}
+                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-x-4">
                     {serviceLinks.map((service) => (
                         <Link 
                             to={service.path} 
                             key={service.name} 
-                            className={`text-white text-center font-semibold p-2 text-sm transition-colors duration-300 hover:bg-white/20 ${location.pathname === service.path ? 'bg-white/20' : 'bg-white/10'}`}
+                            className={`text-white text-center font-semibold p-2 sm:p-2 text-xs sm:text-sm transition-colors duration-300 hover:bg-white/20 rounded-md ${location.pathname === service.path ? 'bg-white/20' : 'bg-white/10'}`}
                         >
-                            {service.name}
+                            {/* Fixed: Truncate long text on mobile */}
+                            <span className="block truncate">{service.name}</span>
                         </Link>
                     ))}
                 </div>
@@ -126,23 +132,23 @@ const FacilityManagement = () => {
             </p>
           </div>
 
-          {/* Services Included Section */}
+          {/* Services Included Section - FIXED */}
           <div className="max-w-5xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
               Services Include
             </h3>
-            <div className="divide-y divide-border">
+            <div className="space-y-6 md:space-y-0 md:divide-y md:divide-border">
               {servicesIncluded.map((service, index) => (
-                <div key={index} className="flex flex-col md:flex-row justify-between md:items-center py-6">
-                  <div className="md:w-1/3 mb-4 md:mb-0">
-                    <h4 className="text-xl font-semibold">{service.name}</h4>
+                <div key={index} className="flex flex-col md:flex-row justify-between md:items-center py-4 md:py-6 bg-white md:bg-transparent rounded-lg md:rounded-none p-4 md:p-0 shadow-sm md:shadow-none">
+                  <div className="md:w-1/3 mb-3 md:mb-0">
+                    <h4 className="text-lg md:text-xl font-semibold">{service.name}</h4>
                   </div>
-                  <div className="md:w-1/2">
-                    <p className="text-black">{service.description}</p>
+                  <div className="md:w-1/2 mb-3 md:mb-0">
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{service.description}</p>
                   </div>
-                  <div className="md:w-auto flex justify-end mt-4 md:mt-0">
+                  <div className="md:w-auto flex justify-center md:justify-end">
                       <button className="p-2 rounded-full border border-border hover:bg-muted transition-colors">
-                          <ChevronRight className="h-6 w-6 text-muted-foreground" />
+                          <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-muted-foreground" />
                       </button>
                   </div>
                 </div>
@@ -153,7 +159,7 @@ const FacilityManagement = () => {
         </div>
       </section>
 
-      {/* Our Process Section */}
+      {/* Our Process Section - FIXED */}
       <section className="py-20 sm:py-28 bg-muted">
         <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4">
@@ -163,11 +169,12 @@ const FacilityManagement = () => {
                 A systematic approach to facility management that ensures quality, efficiency, and continuous improvement.
             </p>
 
-            <div className="grid md:grid-cols-5 divide-x divide-border/30 border-y border-border/30 max-w-5xl mx-auto">
+            {/* Fixed: Better responsive grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:divide-x md:divide-border/30 border-y border-border/30 max-w-5xl mx-auto">
                 {processSteps.map((step, index) => (
-                    <div key={index} className="text-center p-6">
-                        {React.cloneElement(step.icon, { className: "h-10 w-10 text-primary mx-auto mb-4" })}
-                        <p className="font-semibold text-lg">{step.name}</p>
+                    <div key={index} className="text-center p-4 md:p-6">
+                        {React.cloneElement(step.icon, { className: "h-8 w-8 md:h-10 md:w-10 text-primary mx-auto mb-4" })}
+                        <p className="font-semibold text-sm md:text-lg">{step.name}</p>
                     </div>
                 ))}
             </div>

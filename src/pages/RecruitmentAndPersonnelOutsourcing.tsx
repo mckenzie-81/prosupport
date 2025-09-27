@@ -95,17 +95,18 @@ const RecruitmentAndPersonnelOutsourcing = () => {
           </p>
         </div>
 
-        {/* Service Links Bar */}
+        {/* Service Links Bar - FIXED */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6 z-20">
             <div className="container mx-auto">
-                <div className="grid grid-cols-2 sm:grid-cols-5 gap-x-4 gap-y-2">
+                {/* Fixed: 5 columns causes overflow on mobile */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-x-4 sm:gap-y-2">
                     {serviceLinks.map((service) => (
                         <Link 
                             to={service.path} 
                             key={service.name} 
-                            className={`text-white text-center font-semibold p-2 text-sm transition-colors duration-300 hover:bg-white/20 ${location.pathname === service.path ? 'bg-white/20' : 'bg-white/10'}`}
+                            className={`text-white text-center font-semibold p-2 text-xs sm:text-sm transition-colors duration-300 hover:bg-white/20 rounded ${location.pathname === service.path ? 'bg-white/20' : 'bg-white/10'}`}
                         >
-                            {service.name}
+                            <span className="block leading-tight">{service.name}</span>
                         </Link>
                     ))}
                 </div>
