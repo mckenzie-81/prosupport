@@ -12,11 +12,15 @@ import {
   Send,
   Clock,
   MessageSquare,
-  Calendar
+  Calendar,
+  Loader2,
+  CheckCircle,
+  AlertCircle
 } from "lucide-react";
+import { submitContactForm, type ContactFormData } from "@/services/contact";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     phone: '',
@@ -25,6 +29,12 @@ const ContactSection = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -32,11 +42,66 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
+    
+    // Clear previous status
+    setSubmitStatus({ type: null, message: '' });
+    
+    // Client-side validation
+    if (!formData.name.trim()) {
+      setSubmitStatus({ type: 'error', message: 'Name is required' });
+      return;
+    }
+    if (!formData.email.trim()) {
+      setSubmitStatus({ type: 'error', message: 'Email is required' });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setSubmitStatus({ type: 'error', message: 'Please enter a valid email address' });
+      return;
+    }
+    if (!formData.message.trim()) {
+      setSubmitStatus({ type: 'error', message: 'Message is required' });
+      return;
+    }
+    if (formData.message.trim().length < 10) {
+      setSubmitStatus({ type: 'error', message: 'Message must be at least 10 characters long' });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await submitContactForm(formData);
+      setSubmitStatus({
+        type: 'success',
+        message: 'Thank you for your message! We will get back to you within 2 hours.'
+      });
+      
+      // Reset form on success
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: '',
+        message: ''
+      });
+
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus({ type: null, message: '' });
+      }, 5000);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+      setSubmitStatus({
+        type: 'error',
+        message: errorMessage
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -94,6 +159,22 @@ const ContactSection = () => {
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Status Message */}
+                {submitStatus.type && (
+                  <div className={`p-4 rounded-lg flex items-center space-x-3 transition-all duration-300 ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-700' 
+                      : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-700'
+                  }`}>
+                    {submitStatus.type === 'success' ? (
+                      <CheckCircle className="h-5 w-5 flex-shrink-0" />
+                    ) : (
+                      <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                    )}
+                    <p className="text-sm font-medium">{submitStatus.message}</p>
+                  </div>
+                )}
+
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="name" className="text-foreground font-medium">Full Name *</Label>
@@ -155,7 +236,7 @@ const ContactSection = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
-                    className="w-full mt-2 p-3 border-2 rounded-lg focus:border-primary transition-colors bg-background"
+                    className="w-full mt-2 p-3 border-2 rounded-lg focus:border-primary transition-colors bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
                   >
                     <option value="">Select a service...</option>
                     <option value="facility-management">Facility Management</option>
@@ -181,9 +262,22 @@ const ContactSection = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button type="submit" className="btn-premium text-white font-semibold flex-1 group">
-                    <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    Start Your Transformation
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting || !formData.name.trim() || !formData.email.trim() || !formData.message.trim()}
+                    className="btn-premium text-white font-semibold flex-1 group disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Sending Message...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        Start Your Transformation
+                      </>
+                    )}
                   </Button>
                   <Button type="button" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white">
                     <Calendar className="mr-2 h-4 w-4" />
