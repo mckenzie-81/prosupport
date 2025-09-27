@@ -28,7 +28,7 @@ export const contactService = {
     }
 
     try {
-      const response = await axios.post('https://formspree.io/f/mpwyqlaz', {
+      const response = await axios.post('https://formspree.io/f/meorelkz', {
         name: data.name.trim(),
         email: data.email.trim(),
         phone: data.phone?.trim() || '',
