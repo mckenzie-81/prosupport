@@ -10,8 +10,28 @@ import {
   Instagram,
   ArrowUp
 } from "lucide-react";
+import { useState } from "react";
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setIsSubscribing(true);
+    // Add actual newsletter subscription logic here
+    console.log('Newsletter subscription:', email);
+    
+    // Simulate API call
+    setTimeout(() => {
+      alert('Thank you for subscribing!');
+      setEmail('');
+      setIsSubscribing(false);
+    }, 1000);
+  };
+
   const services = [
     "Facility Management",
     "Property Maintenance", 
@@ -29,6 +49,18 @@ const Footer = () => {
     { name: "Contact", href: "/contact" },
     { name: "Get Quote", href: "/contact" }
   ];
+
+  const getServicePath = (serviceName: string) => {
+    const serviceMap: { [key: string]: string } = {
+      "Facility Management": "/services/facility-management",
+      "Property Maintenance": "/services/facility-management",
+      "Procurement & Supply Chain": "/services/procurement-service", 
+      "Inventory Management": "/services/procurement-service",
+      "General Support Services": "/services/general-support",
+      "Market Entry Services": "/services/market-entry"
+    };
+    return serviceMap[serviceName] || "/services";
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -74,7 +106,7 @@ const Footer = () => {
               {services.map((service, index) => (
                 <li key={index}>
                   <a 
-                    href="/services" 
+                    href={getServicePath(service)}
                     className="text-white/80 hover:text-accent-blue transition-colors duration-300 flex items-center group"
                   >
                     <div className="h-1 w-1 bg-accent-blue rounded-full mr-3 group-hover:scale-150 transition-transform"></div>
@@ -111,30 +143,39 @@ const Footer = () => {
             </p>
             
             {/* Newsletter Signup */}
-            <div className="flex mb-6">
+            <form onSubmit={handleNewsletterSubmit} className="flex mb-6">
               <input 
-                type="email" 
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address"
+                required
                 className="flex-1 px-4 py-2 rounded-l-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-accent-blue"
               />
-              <Button className="bg-accent-blue hover:bg-accent-blue/80 text-white px-4 py-2 rounded-r-lg rounded-l-none">
-                Subscribe
+              <Button 
+                type="submit"
+                disabled={isSubscribing}
+                className="bg-accent-blue hover:bg-accent-blue/80 text-white px-4 py-2 rounded-r-lg rounded-l-none disabled:opacity-50"
+              >
+                {isSubscribing ? 'Subscribing...' : 'Subscribe'}
               </Button>
-            </div>
+            </form>
 
             {/* Social Media */}
             <div>
               <p className="text-white/80 mb-4">Follow us on social media:</p>
               <div className="flex space-x-4">
                 {[
-                  { icon: Facebook, href: "#", label: "Facebook" },
-                  { icon: Twitter, href: "#", label: "Twitter" }, 
-                  { icon: Linkedin, href: "#", label: "LinkedIn" },
-                  { icon: Instagram, href: "#", label: "Instagram" }
+                  { icon: Facebook, href: "https://facebook.com/prosupportservices", label: "Facebook" },
+                  { icon: Twitter, href: "https://twitter.com/prosupportgh", label: "Twitter" }, 
+                  { icon: Linkedin, href: "https://linkedin.com/company/prosupport-services", label: "LinkedIn" },
+                  { icon: Instagram, href: "https://instagram.com/prosupportservices", label: "Instagram" }
                 ].map((social, index) => (
                   <a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-white/10 hover:bg-accent-blue p-2 rounded-lg transition-colors duration-300 group"
                     aria-label={social.label}
                   >
@@ -154,7 +195,7 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center space-x-6">
-              <a href="#" className="text-white/80 hover:text-white text-sm transition-colors">
+              <a href="/privacy-policy" className="text-white/80 hover:text-white text-sm transition-colors">
                 Privacy Policy
               </a>
               <a href="#" className="text-white/80 hover:text-white text-sm transition-colors">

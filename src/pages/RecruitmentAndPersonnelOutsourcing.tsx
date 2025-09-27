@@ -52,7 +52,7 @@ const RecruitmentAndPersonnelOutsourcing = () => {
     { name: 'Facility Management', path: '/services/facility-management' },
     { name: 'Procurement & Supply Chain', path: '/services/procurement-service' },
     { name: 'General Support', path: '/services/general-support' },
-    { name: 'Market Entry', path: '/market-entry' },
+    { name: 'Market Entry', path: '/services/market-entry' },
     { name: 'Recruitment & Outsourcing', path: '/recruitment-and-personnel-outsourcing' }
   ];
 
