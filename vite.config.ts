@@ -7,12 +7,13 @@ import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig(({ mode }) => ({
   appType: 'spa',
   server: {
-    host: "::",
+    host: "0.0.0.0", 
     port: 8080,
-    // Add performance hints during development
+    cors: true, // Enable CORS for all origins
     hmr: {
       overlay: true
-    }
+    },
+    allowedHosts: ["8150025267f3.ngrok-free.app"] // Allow specific ngrok host
   },
   plugins: [
     react(),
