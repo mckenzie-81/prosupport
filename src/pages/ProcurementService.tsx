@@ -1,49 +1,49 @@
 import React from 'react';
-import { ChevronRight, ClipboardSignature, DraftingCompass, Users, Wrench, TrendingUp } from 'lucide-react';
+import { ChevronRight, Search, ShoppingCart, Truck, BarChart3, TrendingUp } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-const GeneralSupport = () => {
+const ProcurementService = () => {
   const location = useLocation();
 
   const servicesIncluded = [
-    { name: 'Administrative & Clerical Support', description: 'Efficient handling of paperwork, scheduling, and office tasks to keep your operations smooth.' },
-    { name: 'Front Desk & Reception Services', description: 'Professional and welcoming first point of contact for your clients and visitors.' },
-    { name: 'IT Support Coordination', description: 'Liaising with IT providers to ensure your technical infrastructure is reliable and effective.' },
-    { name: 'Document Management', description: 'Systematic organization and maintenance of your physical and digital records.' },
-    { name: 'Travel & Event Coordination', description: 'Seamless planning and management of corporate travel and events.' },
+    { name: 'Strategic Sourcing & Supplier Management', description: 'Identifying and managing reliable suppliers to optimize cost, quality, and delivery performance.' },
+    { name: 'Procurement Process Optimization', description: 'Streamlining your procurement workflows to reduce cycle times and improve efficiency.' },
+    { name: 'Contract Negotiation & Management', description: 'Expert negotiation and ongoing management of supplier contracts to secure favorable terms.' },
+    { name: 'Inventory Management & Control', description: 'Maintaining optimal inventory levels to balance availability with cost efficiency.' },
+    { name: 'Quality Assurance & Compliance', description: 'Ensuring all procured goods and services meet your quality standards and regulatory requirements.' },
   ];
 
   const processSteps = [
     { 
-      name: 'Consult', 
-      title: 'Consultation & Scope Definition',
-      description: 'We start by understanding your specific support needs, challenges, and objectives to define the scope of services required.',
-      icon: <ClipboardSignature/> 
+      name: 'Assess',
+      title: 'Needs Assessment & Analysis', 
+      description: 'We analyze your current procurement processes, spend patterns, and identify opportunities for improvement.',
+      icon: <Search/> 
     },
     { 
-      name: 'Plan', 
-      title: 'Tailored Service Plan',
-      description: 'A customized support plan is developed, outlining the services, resources, and workflows that best fit your organization.',
-      icon: <DraftingCompass/> 
+      name: 'Source',
+      title: 'Strategic Sourcing', 
+      description: 'We identify and evaluate potential suppliers, conducting thorough due diligence to ensure reliability and value.',
+      icon: <ShoppingCart/> 
     },
     { 
-      name: 'Deploy', 
-      title: 'Resource Deployment',
-      description: 'We deploy the right personnel with the right skills to integrate seamlessly into your team and business environment.',
-      icon: <Users/> 
+      name: 'Execute',
+      title: 'Procurement Execution', 
+      description: 'We manage the procurement process from order placement to delivery, ensuring quality and timely fulfillment.',
+      icon: <Truck/> 
     },
     { 
-      name: 'Execute', 
-      title: 'Execution & Management',
-      description: 'Our team carries out the defined tasks with professionalism and efficiency, managed by experienced supervisors.',
-      icon: <Wrench/> 
+      name: 'Monitor',
+      title: 'Performance Monitoring', 
+      description: 'We track supplier performance, monitor costs, and ensure compliance with agreements and quality standards.',
+      icon: <BarChart3/> 
     },
     { 
-      name: 'Improve', 
-      title: 'Monitoring & Continuous Improvement',
-      description: 'We continuously monitor performance, gather feedback, and refine our services to ensure we are always adding value.',
+      name: 'Optimize',
+      title: 'Continuous Optimization', 
+      description: 'We continuously review and optimize the supply chain to drive cost savings and performance improvements.',
       icon: <TrendingUp/> 
     },
   ];
@@ -86,15 +86,15 @@ const GeneralSupport = () => {
       {/* Hero Section */}
       <section 
         className="relative flex items-center justify-center h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/gen-supp2.jpeg')" }}
+        style={{ backgroundImage: "url('/images/pro-supply2.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative container mx-auto px-4 text-center text-white z-10">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            General Support Services
+            Procurement & Supply Chain
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
-            Allowing you to offload non-core tasks and focus on your primary business activities.
+            Streamlining your procurement processes and optimizing your supply chain for maximum efficiency and cost savings.
           </p>
         </div>
 
@@ -125,10 +125,10 @@ const GeneralSupport = () => {
           {/* Description Section */}
           <div className="max-w-5xl mx-auto mb-16 lg:mb-20">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center">
-              Efficient and Professional Business Support
+              Strategic Supply Chain Management
             </h2>
             <p className="text-lg mt-6 text-muted-foreground text-center">
-              Our General Support Services provide clients with a broad range of auxiliary business support functions, allowing them to offload non-core tasks and focus on their primary business activities. We ensure that everyday operational needs – from administrative tasks to IT support – are handled efficiently and professionally.
+              Our Procurement & Supply Chain services help organizations optimize their purchasing processes, manage supplier relationships, and ensure efficient flow of goods and services. We focus on cost reduction, quality improvement, and risk mitigation while maintaining operational excellence throughout the supply chain.
             </p>
           </div>
 
@@ -166,7 +166,7 @@ const GeneralSupport = () => {
                 Our Process
             </h2>
             <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-20">
-                A clear and structured approach to delivering exceptional support, ensuring all your needs are met with precision and care.
+                A comprehensive approach to procurement and supply chain management that delivers cost savings, quality assurance, and operational efficiency.
             </p>
 
             {/* Fixed: Better responsive grid */}
@@ -191,12 +191,12 @@ const GeneralSupport = () => {
       {/* CTA Section */}
       <section className="bg-background py-20">
         <div className="container mx-auto px-4 text-center">
-           <h2 className="text-3xl font-bold text-foreground mb-4">Focus on Your Core Business</h2>
+           <h2 className="text-3xl font-bold text-foreground mb-4">Optimize Your Supply Chain Today</h2>
            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                Let us handle your operational needs. Contact us for a customized support plan and discover how our general support services can free up your valuable time.
+                Ready to reduce costs and improve efficiency? Contact us to discover how our procurement and supply chain services can transform your operations.
            </p>
            <Button asChild size="lg">
-             <Link to="/contact">Inquire Now</Link>
+             <Link to="/contact">Get Started</Link>
            </Button>
         </div>
       </section>
@@ -204,4 +204,4 @@ const GeneralSupport = () => {
   );
 };
 
-export default GeneralSupport;
+export default ProcurementService;

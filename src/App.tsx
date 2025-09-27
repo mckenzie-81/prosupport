@@ -16,7 +16,7 @@ const AboutUsPage = lazy(() => import("./pages/AboutUs"));
 const FacilityManagement = lazy(() => import("./pages/FacilityManagement"));
 const GeneralSupport = lazy(() => import("./pages/GeneralSupport"));
 const MarketEntry = lazy(() => import("./pages/MarketEntry"));
-const ProcumentService = lazy(() => import("./pages/ProcumentService"));
+const ProcurementService = lazy(() => import("./pages/ProcurementService"));
 const RecruitmentAndPersonnelOutsourcing = lazy(() => import("./pages/RecruitmentAndPersonnelOutsourcing"));
 
 
@@ -49,7 +49,7 @@ const App = () => (
               <Route path="/services/facility-management" element={<FacilityManagement />} />
               <Route path="/services/general-support" element={<GeneralSupport />} />
               <Route path="/services/market-entry" element={<MarketEntry />} />
-              <Route path="/services/procurement-service" element={<ProcumentService />} />
+              <Route path="/services/procurement-service" element={<ProcurementService />} />
               <Route path="/recruitment-and-personnel-outsourcing" element={<RecruitmentAndPersonnelOutsourcing />} />
               <Route path="/contact" element={<Contact />} />
             </Route>
