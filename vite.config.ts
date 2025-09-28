@@ -12,8 +12,8 @@ export default defineConfig(({ mode }) => ({
     cors: true, // Enable CORS for all origins
     hmr: {
       overlay: true
-    },
-    allowedHosts: ["8150025267f3.ngrok-free.app"]
+    }, // <-- comma here
+    allowedHosts: ["8150025267f3.ngrok-free.app"] // <-- no comma needed if last property
   },
   base: process.env.VITE_BASE_PATH || "/prosupport",
   plugins: [
