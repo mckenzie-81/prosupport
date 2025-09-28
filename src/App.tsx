@@ -7,6 +7,7 @@ import { Suspense, lazy } from "react";
 import ScrollToTop from "./components/ScrollToTop";
 import Layout from "./components/Layout";
 import Contact from "@/pages/Contact";
+import PageSkeleton from "@/components/PageSkeleton";
 
 // Lazy load components
 const Index = lazy(() => import("./pages/Index"));
@@ -42,24 +43,24 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Suspense fallback={<div>Loading...</div>}><Index /></Suspense>} />
-            <Route path="about" element={<Suspense fallback={<div>Loading...</div>}><AboutUsPage /></Suspense>} />
-            <Route path="services" element={<Suspense fallback={<div>Loading...</div>}><ServicesPage /></Suspense>} />
+            <Route index element={<Suspense fallback={<PageSkeleton />}><Index /></Suspense>} />
+            <Route path="about" element={<Suspense fallback={<PageSkeleton />}><AboutUsPage /></Suspense>} />
+            <Route path="services" element={<Suspense fallback={<PageSkeleton />}><ServicesPage /></Suspense>} />
             <Route path="contact" element={<Contact />} />
             
             {/* Service Routes - FIXED */}
-            <Route path="services/facility-management" element={<Suspense fallback={<div>Loading...</div>}><FacilityManagement /></Suspense>} />
-            <Route path="services/procurement-service" element={<Suspense fallback={<div>Loading...</div>}><ProcurementService /></Suspense>} />
-            <Route path="services/general-support" element={<Suspense fallback={<div>Loading...</div>}><GeneralSupport /></Suspense>} />
-            <Route path="services/market-entry" element={<Suspense fallback={<div>Loading...</div>}><MarketEntry /></Suspense>} />
+            <Route path="services/facility-management" element={<Suspense fallback={<PageSkeleton />}><FacilityManagement /></Suspense>} />
+            <Route path="services/procurement-service" element={<Suspense fallback={<PageSkeleton />}><ProcurementService /></Suspense>} />
+            <Route path="services/general-support" element={<Suspense fallback={<PageSkeleton />}><GeneralSupport /></Suspense>} />
+            <Route path="services/market-entry" element={<Suspense fallback={<PageSkeleton />}><MarketEntry /></Suspense>} />
             
             {/* MISSING ROUTE - ADD THIS */}
-            <Route path="recruitment-and-personnel-outsourcing" element={<Suspense fallback={<div>Loading...</div>}><RecruitmentAndPersonnelOutsourcing /></Suspense>} />
+            <Route path="recruitment-and-personnel-outsourcing" element={<Suspense fallback={<PageSkeleton />}><RecruitmentAndPersonnelOutsourcing /></Suspense>} />
             
             {/* Policy Routes */}
-            <Route path="privacy-policy" element={<Suspense fallback={<div>Loading...</div>}><PrivacyPolicy /></Suspense>} />
+            <Route path="privacy-policy" element={<Suspense fallback={<PageSkeleton />}><PrivacyPolicy /></Suspense>} />
             
-            <Route path="*" element={<Suspense fallback={<div>Loading...</div>}><NotFound /></Suspense>} />
+            <Route path="*" element={<Suspense fallback={<PageSkeleton />}><NotFound /></Suspense>} />
           </Route>
         </Routes>
       </BrowserRouter>
