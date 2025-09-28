@@ -13,10 +13,11 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: true
     },
-    allowedHosts: ["8150025267f3.ngrok-free.app"] // Allow specific ngrok host
+    allowedHosts: ["8150025267f3.ngrok-free.app"]
   },
   plugins: [
     react(),
+    base: process.env.VITE_BASE_PATH || "/prosupport"
     visualizer({
       filename: 'dist/stats.html',
       open: true,
