@@ -53,16 +53,23 @@ export const contactService = {
       }
     } catch (error) {
       console.error('Contact form error:', error);
-      if (axios.isAxiosError(error)) {
-        if (error.code === 'ECONNABORTED') {
+      // Type guard for AxiosError (works with all Axios versions)
+      if (
+        typeof error === "object" &&
+        error !== null &&
+        "isAxiosError" in error &&
+        (error as any).isAxiosError
+      ) {
+        const err = error as any;
+        if (err.code === 'ECONNABORTED') {
           throw new Error('Request timed out. Please check your connection and try again.');
-        } else if (error.response?.status === 422) {
+        } else if (err.response?.status === 422) {
           throw new Error('Please check your form data and try again.');
-        } else if (error.response?.status === 429) {
+        } else if (err.response?.status === 429) {
           throw new Error('Too many requests. Please wait a moment and try again.');
-        } else if (error.response?.status >= 500) {
+        } else if (err.response?.status >= 500) {
           throw new Error('Server error. Please try again later.');
-        } else if (!error.response) {
+        } else if (!err.response) {
           throw new Error('Network error. Please check your connection and try again.');
         }
       }
