@@ -15,9 +15,9 @@ export default defineConfig(({ mode }) => ({
     },
     allowedHosts: ["8150025267f3.ngrok-free.app"]
   },
+  base: process.env.VITE_BASE_PATH || "/prosupport",
   plugins: [
     react(),
-    base: process.env.VITE_BASE_PATH || "/prosupport"
     visualizer({
       filename: 'dist/stats.html',
       open: true,
